@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44EACCAB-352C-4971-B201-81FE8C23F460}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Storages</RootNamespace>
+    <AssemblyName>Storages</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataModel\Client.cs" />
+    <Compile Include="DataModel\Company.cs" />
+    <Compile Include="DataModel\Container.cs" />
+    <Compile Include="DataModel\Garage.cs" />
+    <Compile Include="DataModel\Order.cs" />
+    <Compile Include="DataModel\Product.cs" />
+    <Compile Include="DataModel\ProductType.cs" />
+    <Compile Include="DataModel\Role.cs" />
+    <Compile Include="DataModel\Storage.cs" />
+    <Compile Include="DataModel\StoragesModel.cs" />
+    <Compile Include="DataModel\sysdiagram.cs" />
+    <Compile Include="DataModel\Transport types\GranularTransport.cs" />
+    <Compile Include="DataModel\Transport types\LiquidTransport.cs" />
+    <Compile Include="DataModel\Transport types\SolidTransport.cs" />
+    <Compile Include="DataModel\Transport.cs" />
+    <Compile Include="DataModel\User.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201904112207559_FirstMigration.cs" />
+    <Compile Include="Migrations\201904112207559_FirstMigration.Designer.cs">
+      <DependentUpon>201904112207559_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Patterns\Abstract factory\IGranularTransport.cs" />
+    <Compile Include="Patterns\Abstract factory\ILiquidTransport.cs" />
+    <Compile Include="Patterns\Abstract factory\ISolidTransport.cs" />
+    <Compile Include="Patterns\Abstract factory\IFactory.cs" />
+    <Compile Include="Patterns\Abstract factory\ITransport.cs" />
+    <Compile Include="Patterns\Abstract factory\TransportFactory.cs" />
+    <Compile Include="Patterns\Facade\Storage_Garage_Facade.cs" />
+    <Compile Include="Patterns\Manager\Colleague.cs" />
+    <Compile Include="Patterns\Manager\IManagerMediator.cs" />
+    <Compile Include="Patterns\Manager\ManagerFacade.cs" />
+    <Compile Include="Patterns\Manager\ManagerHistory.cs" />
+    <Compile Include="Patterns\Manager\ManagerMemento.cs" />
+    <Compile Include="Patterns\Manager\ManagerSingleton.cs" />
+    <Compile Include="Patterns\Proxy\Implementer.cs" />
+    <Compile Include="Patterns\Proxy\ImplementerContext.cs" />
+    <Compile Include="Patterns\Proxy\Proxy.cs" />
+    <Compile Include="Patterns\Strategy\ConcreteStrategy1.cs" />
+    <Compile Include="Patterns\Strategy\ConcreteStrategy2.cs" />
+    <Compile Include="Patterns\Strategy\IStrategy.cs" />
+    <Compile Include="Patterns\Strategy\Simulator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201904112207559_FirstMigration.resx">
+      <DependentUpon>201904112207559_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
